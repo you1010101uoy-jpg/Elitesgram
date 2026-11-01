@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080808">
+<title>ELITE HUB</title>
+<style>
+:root{--bg:#080808;--panel:#111;--panel2:#171717;--line:#292929;--text:#f5f5f5;--muted:#929292;--accent:#fff;--shadow:0 18px 50px #0008}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#292929 0,transparent 45%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+button,input,textarea{font:inherit}button{cursor:pointer;color:inherit}.app{max-width:1120px;margin:auto;padding:22px 20px 100px}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:38px}.brand{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;border:1px solid #777;border-radius:14px;display:grid;place-items:center;font-weight:900;letter-spacing:-2px;background:linear-gradient(145deg,#252525,#080808);box-shadow:0 0 24px #fff1}.brandname{font-size:15px;font-weight:900;letter-spacing:4px}.brandtag{font-size:9px;color:var(--muted);letter-spacing:2.5px;margin-top:3px}.iconbtn{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:#111;display:grid;place-items:center;font-size:17px}
+.hero{position:relative;overflow:hidden;border:1px solid #333;border-radius:28px;padding:34px;background:linear-gradient(115deg,#1b1b1b,#0b0b0b 62%);box-shadow:var(--shadow);min-height:230px}.hero:after{content:"E";position:absolute;right:30px;top:-65px;font-size:300px;font-weight:950;line-height:1;color:#ffffff08;pointer-events:none}.eyebrow{font-size:10px;letter-spacing:3px;color:#aaa;font-weight:700}.hero h1{font-size:clamp(36px,7vw,64px);line-height:.98;letter-spacing:-3px;margin:18px 0 12px;position:relative;z-index:1}.hero p{color:#aaa;margin:0;max-width:420px;font-size:14px;line-height:1.6;position:relative;z-index:1}.hero-actions{display:flex;gap:10px;margin-top:24px;position:relative;z-index:1}.btn{border:1px solid #eee;background:#f4f4f4;color:#090909;padding:12px 17px;border-radius:12px;font-weight:800;font-size:12px}.btn.secondary{background:#171717;border-color:#444;color:#eee}
+.section-head{display:flex;align-items:end;justify-content:space-between;margin:34px 2px 14px}.section-head h2{font-size:17px;margin:0;letter-spacing:.2px}.section-head span{font-size:11px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.tile{min-height:145px;text-align:left;padding:19px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(145deg,#171717,#0e0e0e);transition:.2s;position:relative;overflow:hidden}.tile:active{transform:scale(.98)}.tile:hover{border-color:#666;transform:translateY(-2px)}.tile .ico{font-size:23px;margin-bottom:18px;display:block}.tile strong{display:block;font-size:14px}.tile small{display:block;color:var(--muted);font-size:11px;margin-top:6px}.tile .arrow{position:absolute;right:17px;top:17px;color:#777}
+.panel{display:none;margin-top:22px;border:1px solid var(--line);background:#101010;border-radius:22px;padding:22px;animation:appear .25s ease}.panel.active{display:block}@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}.panel h2{margin:0 0 7px;font-size:21px}.sub{color:var(--muted);font-size:12px;margin:0 0 20px}.field{width:100%;border:1px solid #333;background:#080808;color:#fff;border-radius:12px;padding:13px 14px;outline:none}.field:focus{border-color:#888}textarea.field{min-height:130px;resize:vertical}.row{display:flex;gap:9px;margin-top:10px}.row .field{flex:1;min-width:0}.list{display:grid;gap:9px;margin-top:15px}.item{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #292929;border-radius:12px;background:#151515}.item span{flex:1;font-size:13px;overflow-wrap:anywhere}.item.done span{text-decoration:line-through;color:#777}.mini{border:1px solid #3b3b3b;background:#202020;border-radius:9px;padding:7px 10px;font-size:11px}.danger{color:#ff8a8a}.profilebox{display:flex;align-items:center;gap:15px;margin-bottom:20px}.avatar{width:58px;height:58px;border-radius:19px;background:#eee;color:#090909;display:grid;place-items:center;font-size:24px;font-weight:950}.profilebox strong{display:block}.profilebox small{color:var(--muted)}.setting{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #252525;font-size:13px}.switch{width:42px;height:24px;border-radius:20px;background:#444;border:0;padding:3px}.switch:after{content:"";display:block;width:18px;height:18px;border-radius:50%;background:white;transition:.2s}.switch.on{background:#eee}.switch.on:after{transform:translateX(18px);background:#111}
+.bottom{position:fixed;bottom:0;left:0;right:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:#080808dd;backdrop-filter:blur(18px);border-top:1px solid #222;display:flex;justify-content:center;z-index:5}.nav{width:min(500px,100%);display:flex;justify-content:space-around}.nav button{border:0;background:none;color:#777;font-size:10px;display:grid;gap:4px;justify-items:center;padding:5px 15px}.nav button b{font-size:18px}.nav button.active{color:white}
+.toast{position:fixed;left:50%;bottom:88px;transform:translate(-50%,12px);background:#eee;color:#080808;border-radius:99px;padding:10px 16px;font-size:12px;font-weight:700;opacity:0;pointer-events:none;transition:.2s;z-index:10}.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{text-align:center;color:#555;font-size:10px;letter-spacing:2px;margin-top:36px}
+@media(max-width:700px){.app{padding:17px 14px 100px}.top{margin-bottom:25px}.hero{padding:26px 22px;min-height:220px}.hero:after{right:-8px;top:-25px;font-size:220px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.tile{min-height:130px;padding:15px}.section-head{margin-top:28px}.panel{padding:18px}.brandname{letter-spacing:3px}}
+@media(max-width:360px){.grid{grid-template-columns:1fr}.hero h1{font-size:38px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="mark">E.</div><div><div class="brandname">ELITE HUB</div><div class="brandtag">YOUR PRIVATE SPACE</div></div></div>
+    <button class="iconbtn" id="profileTop" aria-label="Профиль">◉</button>
+  </header>
+
+  <section class="hero" id="homeHero">
+    <div class="eyebrow">WELCOME TO YOUR SPACE</div>
+    <h1>STAY<br>ELITE.</h1>
+    <p>Твоё личное пространство. Заметки, задачи и настройки — всё в одном месте, прямо на устройстве.</p>
+    <div class="hero-actions"><button class="btn" onclick="openPanel('notes')">＋ Новая заметка</button><button class="btn secondary" onclick="openPanel('tasks')">Мои задачи ↗</button></div>
+  </section>
+
+  <div class="section-head"><h2>Рабочая зона</h2><span>01 / HUB</span></div>
+  <div class="grid">
+    <button class="tile" onclick="openPanel('notes')"><span class="arrow">↗</span><span class="ico">▤</span><strong>Заметки</strong><small>Мысли и идеи</small></button>
+    <button class="tile" onclick="openPanel('tasks')"><span class="arrow">↗</span><span class="ico">✓</span><strong>Задачи</strong><small>Твой список дел</small></button>
+    <button class="tile" onclick="openPanel('profile')"><span class="arrow">↗</span><span class="ico">◉</span><strong>Профиль</strong><small>Твоя территория</small></button>
+    <button class="tile" onclick="openPanel('about')"><span class="arrow">↗</span><span class="ico">✦</span><strong>О проекте</strong><small>ELITE HUB</small></button>
+  </div>
+
+  <section class="panel" id="notes">
+    <h2>Заметки</h2><p class="sub">Сохраняй идеи — они останутся на этом устройстве.</p>
+    <textarea class="field" id="noteInput" placeholder="Напиши что-нибудь..."></textarea>
+    <div class="row"><button class="btn" onclick="saveNote()">Сохранить заметку</button><button class="mini" onclick="clearNoteInput()">Очистить</button></div>
+    <div class="list" id="notesList"></div>
+  </section>
+
+  <section class="panel" id="tasks">
+    <h2>Задачи</h2><p class="sub">Добавляй дела и отмечай выполненные.</p>
+    <div class="row"><input class="field" id="taskInput" placeholder="Например: придумать новый проект" maxlength="120"><button class="btn" onclick="addTask()">Добавить</button></div>
+    <div class="list" id="tasksList"></div>
+  </section>
+
+  <section class="panel" id="profile">
+    <h2>Профиль</h2><p class="sub">Локальный профиль без регистрации.</p>
+    <div class="profilebox"><div class="avatar" id="avatarLetter">E</div><div><strong id="profileName">Elite</strong><small>ELITE MEMBER</small></div></div>
+    <label class="sub" for="nameInput">Отображаемое имя</label>
+    <div class="row"><input class="field" id="nameInput" maxlength="24" placeholder="Твоё имя"><button class="btn" onclick="saveName()">Сохранить</button></div>
+  </section>
+
+  <section class="panel" id="about">
+    <h2>ELITE HUB</h2><p class="sub">Небольшой личный центр в минималистичном стиле.</p>
+    <div class="item"><span>Версия</span><b>1.0</b></div>
+    <div class="item"><span>Хранение</span><b>На устройстве</b></div>
+    <div class="item"><span>Аккаунт / SMS</span><b>Не требуются</b></div>
+    <div class="item"><span>Интернет</span><b>Не нужен</b></div>
+    <p class="sub" style="margin:18px 0 0">Важно: данные хранятся в браузере этого устройства. Очистка данных браузера может удалить заметки и задачи.</p>
+  </section>
+
+  <footer>ELITE HUB · BUILT FOR YOU</footer>
+</div>
+<nav class="bottom"><div class="nav">
+  <button class="active" data-nav="home" onclick="goHome()"><b>⌂</b>Главная</button>
+  <button data-nav="notes" onclick="openPanel('notes')"><b>▤</b>Заметки</button>
+  <button data-nav="tasks" onclick="openPanel('tasks')"><b>✓</b>Задачи</button>
+  <button data-nav="profile" onclick="openPanel('profile')"><b>◉</b>Профиль</button>
+</div></nav>
+<div class="toast" id="toast"></div>
+<script>
+const $=id=>document.getElementById(id);
+const read=(key, fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
+const write=(key,val)=>localStorage.setItem(key,JSON.stringify(val));
+let notes=read('elite_notes',[]), tasks=read('elite_tasks',[]), user=read('elite_user',{name:'Elite'});
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),1900)}
+function hidePanels(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'))}
+function setNav(name){document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.nav===name))}
+function openPanel(name){hidePanels();$('homeHero').style.display='none';document.querySelector('.section-head').style.display='none';document.querySelector('.grid').style.display='none';$(name).classList.add('active');setNav(name);if(name==='notes')renderNotes();if(name==='tasks')renderTasks();if(name==='profile')renderProfile();window.scrollTo({top:0,behavior:'smooth'})}
+function goHome(){hidePanels();$('homeHero').style.display='';document.querySelector('.section-head').style.display='flex';document.querySelector('.grid').style.display='grid';setNav('home');window.scrollTo({top:0,behavior:'smooth'})}
+function saveNote(){const value=$('noteInput').value.trim();if(!value)return toast('Сначала напиши заметку');notes.unshift({id:Date.now(),text:value,date:new Date().toLocaleString('ru-RU',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})});write('elite_notes',notes);$('noteInput').value='';renderNotes();toast('Заметка сохранена')}
+function clearNoteInput(){$('noteInput').value=''}
+function renderNotes(){$('notesList').innerHTML=notes.length?notes.map(n=>`<div class="item"><span><small style="color:#777;display:block;margin-bottom:5px">${escapeHtml(n.date)}</small>${escapeHtml(n.text)}</span><button class="mini danger" onclick="deleteNote(${n.id})">Удалить</button></div>`).join(''):'<p class="sub">Пока заметок нет.</p>'}
+function deleteNote(id){notes=notes.filter(n=>n.id!==id);write('elite_notes',notes);renderNotes();toast('Заметка удалена')}
+function addTask(){const value=$('taskInput').value.trim();if(!value)return toast('Введи задачу');tasks.unshift({id:Date.now(),text:value,done:false});write('elite_tasks',tasks);$('taskInput').value='';renderTasks();toast('Задача добавлена')}
+function toggleTask(id){tasks=tasks.map(t=>t.id===id?{...t,done:!t.done}:t);write('elite_tasks',tasks);renderTasks()}
+function deleteTask(id){tasks=tasks.filter(t=>t.id!==id);write('elite_tasks',tasks);renderTasks()}
+function renderTasks(){$('tasksList').innerHTML=tasks.length?tasks.map(t=>`<div class="item ${t.done?'done':''}"><button class="mini" onclick="toggleTask(${t.id})">${t.done?'✓':'○'}</button><span>${escapeHtml(t.text)}</span><button class="mini danger" onclick="deleteTask(${t.id})">×</button></div>`).join(''):'<p class="sub">Задач пока нет. Добавь первую.</p>'}
+function saveName(){const name=$('nameInput').value.trim().slice(0,24);if(!name)return toast('Введи имя');user.name=name;write('elite_user',user);renderProfile();toast('Профиль обновлён')}
+function renderProfile(){$('profileName').textContent=user.name;$('avatarLetter').textContent=(user.name[0]||'E').toUpperCase();$('nameInput').value=user.name}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('profileTop').addEventListener('click',()=>openPanel('profile'));
+$('taskInput').addEventListener('keydown',e=>{if(e.key==='Enter')addTask()});
+renderProfile();
+</script>
+</body>
+</html>
